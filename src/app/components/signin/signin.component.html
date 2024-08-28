@@ -1,1 +1,54 @@
-<p>signin works!</p>
+<div class="w-75 m-auto my-5">
+  <h1>Login Now:</h1>
+  <form [formGroup]="login" (ngSubmit)="sendData()">
+
+
+
+    <input [ngClass]="{
+
+      'is-valid':!login.get('email')?.errors && (login.get('email')?.dirty || login.get('email')?.touched),
+      'is-invalid':login.get('email')?.errors && (login.get('email')?.dirty || login.get('email')?.touched)
+
+
+  }" formControlName="email" type="email" class="form-control my-3" placeholder="Type your email">
+    <alertError [formName]="login" [controlName]="'email'" />
+
+    <input [ngClass]="{
+
+      'is-valid':!login.get('password')?.errors && (login.get('password')?.dirty || login.get('password')?.touched),
+      'is-invalid':login.get('password')?.errors && (login.get('password')?.dirty || login.get('password')?.touched)
+
+
+  }" formControlName="password" type="password" class="form-control my-3" placeholder="Type your password">
+    <alertError [formName]="login" [controlName]="'password'" />
+
+
+
+
+
+    @if(loginDone)
+    {
+    <div class="text-success fw-semibold my-3">login Done</div>
+    }
+    @else
+    {
+    <div class="text-danger fw-semibold my-3">{{errorMsg}}</div>
+    }
+
+
+    <app-button [disabledData]='login.invalid || isSubmitBtn'>
+      @if(isSubmitBtn)
+      {
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      }
+      @else
+      {
+      Login
+
+      }
+    </app-button>
+
+
+
+  </form>
+</div>

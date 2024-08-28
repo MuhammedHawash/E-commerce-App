@@ -1,3 +1,4 @@
+import { AuthService } from '../../core/services/auth.service';
 import { Product } from './../../core/interfaces/product';
 import { ProductsService } from './../../core/services/products.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   allProducts: Product[] = [];
-  constructor(private _ProductsService: ProductsService) {}
+  constructor(
+    private _ProductsService: ProductsService,
+    private token: AuthService
+  ) {
+    this.token.saveUserData();
+  }
   getProducts = () => {
     this._ProductsService.getProducts().subscribe({
       next: (res) => {

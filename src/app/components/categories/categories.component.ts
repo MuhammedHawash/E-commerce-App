@@ -1,4 +1,5 @@
 import { category } from '../../core/interfaces/category';
+import { AuthService } from '../../core/services/auth.service';
 import { CategoriesService } from './../../core/services/categories.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './categories.component.scss',
 })
 export class CategoriesComponent implements OnInit {
-  constructor(private _CategoriesService: CategoriesService) {}
+  constructor(
+    private _CategoriesService: CategoriesService,
+    private token: AuthService
+  ) {
+    this.token.saveUserData();
+  }
   allCategories: category[] = [];
   getCategories = () => {
     this._CategoriesService.getCategories().subscribe({
