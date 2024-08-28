@@ -1,0 +1,12 @@
+<div class="container py-3">
+  <div class="row">
+    @for (brand of allBrands; track $index) {
+    <div class="col-md-3 g-2">
+      <div class="brand p-3">
+        <img [src]="brand.image" class="w-100" alt="brand image">
+
+      </div>
+    </div>
+    }
+  </div>
+</div>

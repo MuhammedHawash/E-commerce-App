@@ -1,0 +1,12 @@
+<div class="container py-3">
+  <div class="row">
+    @for (category of allCategories; track $index) {
+    <div class="col-md-3 g-2">
+      <div class="category p-3">
+        <img [src]="category.image" class="w-100" alt="category image">
+        <h5 class="text-main text-center fw-bold my-2">{{category.name}}</h5>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.category img {
+  object-fit: cover;
+  aspect-ratio: 0.8;
+  cursor: pointer;
+}
+.category {
+  transition: all 500ms;
+}
+
+.category:hover {
+  scale: 1.2;
+}
+.category img:hover {
+  box-shadow: var(--shadow);
+  border: solid 1px var(--main-color);
+}

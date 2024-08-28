@@ -1,0 +1,12 @@
+.brand {
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+.brand:hover {
+  scale: 1.2;
+}
+.brand img:hover {
+  box-shadow: var(--shadow);
+  border: solid 1px var(--main-color);
+}
