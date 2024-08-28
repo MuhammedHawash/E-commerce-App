@@ -1,0 +1,69 @@
+<div class="w-75 m-auto my-5">
+  <h1>Register Now:</h1>
+  <form [formGroup]="register" (ngSubmit)="sendData()">
+
+    <input [ngClass]="{
+
+      'is-valid':!register.get('name')?.errors && (register.get('name')?.dirty || register.get('name')?.touched),
+      'is-invalid':register.get('name')?.errors && (register.get('name')?.dirty || register.get('name')?.touched)
+
+
+  }" formControlName="name" type="text" class="form-control my-3 " placeholder="Type your name">
+    <alertError [formName]="register" [controlName]="'name'" />
+
+    <input [ngClass]="{
+
+      'is-valid':!register.get('email')?.errors && (register.get('email')?.dirty || register.get('email')?.touched),
+      'is-invalid':register.get('email')?.errors && (register.get('email')?.dirty || register.get('email')?.touched)
+
+
+  }" formControlName="email" type="email" class="form-control my-3" placeholder="Type your email">
+    <alertError [formName]="register" [controlName]="'email'" />
+
+    <input [ngClass]="{
+
+      'is-valid':!register.get('password')?.errors && (register.get('password')?.dirty || register.get('password')?.touched),
+      'is-invalid':register.get('password')?.errors && (register.get('password')?.dirty || register.get('password')?.touched)
+
+
+  }" formControlName="password" type="password" class="form-control my-3" placeholder="Type your password">
+    <alertError [formName]="register" [controlName]="'password'" />
+
+    <input [ngClass]="{
+
+      'is-valid':(!register.get('rePassword')?.errors || !register.getError('mismatch'))&&(register.get('rePassword')?.dirty || register.get('rePassword')?.touched),
+
+      'is-invalid':(register.get('rePassword')?.errors || register.getError('mismatch') )&& (register.get('rePassword')?.dirty || register.get('rePassword')?.touched)
+
+
+  }" formControlName="rePassword" type="password" class="form-control my-3" placeholder="Type your rePassword">
+    <alertError [formName]="register" [controlName]="'rePassword'" />
+
+
+
+    @if(registerDone)
+    {
+    <div class="text-success fw-semibold my-3">Register Done</div>
+    }
+    @else
+    {
+    <div class="text-danger fw-semibold my-3">{{errorMsg}}</div>
+    }
+
+
+    <app-button [disabledData]='register.invalid || isSubmitBtn'>
+      @if(isSubmitBtn)
+      {
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      }
+      @else
+      {
+      Register
+
+      }
+    </app-button>
+
+
+
+  </form>
+</div>
