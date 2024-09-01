@@ -1,15 +1,19 @@
+<app-slider></app-slider>
+<app-category-slider></app-category-slider>
 <div class="container my-4">
   <div class="row">
     @for (product of allProducts; track $index) {
     <div class="col-md-2">
       <div class="product p-2">
 
-        <img [src]="product.imageCover" class="w-100" alt="img">
-        <h6 class="text-main text-center">{{product.category.name}}</h6>
-        <h5 class="fw-bolder text-center">{{product.title.split(' ').slice(0,2).join(' ')}}...</h5>
-        <div class="d-flex justify-content-around">
-          <span>{{product.price}} EGP</span>
-          <span class="rating-color"> <i class="fa-solid fa-star"></i>{{product.ratingsAverage}} </span>
+        <div [routerLink]="'/details/'+product._id">
+          <img [src]="product.imageCover" class="w-100" alt="img">
+          <h6 class="text-main text-center">{{product.category.name}}</h6>
+          <h5 class="fw-bolder text-center">{{product.title.split(' ').slice(0,2).join(' ')}}...</h5>
+          <div class="d-flex justify-content-around">
+            <span>{{product.price}} EGP</span>
+            <span class="rating-color"> <i class="fa-solid fa-star"></i>{{product.ratingsAverage}} </span>
+          </div>
         </div>
         <button class="btn bg-main text-white w-100 my-3">Add To Cart</button>
 

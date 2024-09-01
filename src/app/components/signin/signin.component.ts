@@ -3,7 +3,7 @@ import { AlertErrorComponent } from '../../shared/ui/alert-error/alert-error.com
 import { signupValidators } from '../../shared/validators/signup.validators';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { confirmPassword } from '../../shared/utilities/confirm-password.utilities';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgClass } from '@angular/common';
@@ -12,7 +12,13 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [AlertErrorComponent, ReactiveFormsModule, NgClass, ButtonComponent],
+  imports: [
+    AlertErrorComponent,
+    ReactiveFormsModule,
+    NgClass,
+    ButtonComponent,
+    RouterLink,
+  ],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss',
 })

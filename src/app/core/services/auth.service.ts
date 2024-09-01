@@ -29,4 +29,25 @@ export class AuthService {
       }
     }
   };
+
+  forgotPassword(email: any): Observable<any> {
+    return this._HttpClient.post(
+      baseUrl + 'api/v1/auth/forgotPasswords',
+      email
+    );
+  }
+
+  verifyResetCode(resetCode: any): Observable<any> {
+    return this._HttpClient.post(
+      baseUrl + 'api/v1/auth/verifyResetCode',
+      resetCode
+    );
+  }
+
+  resetPassword(newPassword: any): Observable<any> {
+    return this._HttpClient.put(
+      baseUrl + 'api/v1/auth/resetPassword',
+      newPassword
+    );
+  }
 }

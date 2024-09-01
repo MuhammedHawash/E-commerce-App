@@ -13,6 +13,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { authGuard } from './core/guards/auth.guard';
 import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { DetailsComponent } from './components/details/details.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +25,11 @@ export const routes: Routes = [
       { path: '', redirectTo: 'signin', pathMatch: 'full' },
       { path: 'signin', component: SigninComponent, title: 'SignIn' },
       { path: 'signup', component: SignupComponent, title: 'SignUp' },
+      {
+        path: 'forgotPassword',
+        component: ForgotPasswordComponent,
+        title: 'forgot',
+      },
     ],
   },
 
@@ -44,6 +51,7 @@ export const routes: Routes = [
       { path: 'cart', component: CartComponent, title: 'Cart' },
       { path: 'order', component: OrdersComponent, title: 'Order' },
       { path: 'wishlist', component: WishlistComponent, title: 'Wishlist' },
+      { path: 'details/:id', component: DetailsComponent, title: 'Details' },
     ],
   },
   { path: '**', component: NotFoundComponent, title: 'Not Found' },

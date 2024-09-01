@@ -36,17 +36,21 @@
     }
 
 
-    <app-button [disabledData]='login.invalid || isSubmitBtn'>
-      @if(isSubmitBtn)
-      {
-      <i class="fa-solid fa-spinner fa-spin"></i>
-      }
-      @else
-      {
-      Login
+    <div class="d-flex justify-content-between">
+      <app-button [disabledData]='login.invalid || isSubmitBtn'>
+        @if(isSubmitBtn)
+        {
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        }
+        @else
+        {
+        Login
 
-      }
-    </app-button>
+        }
+      </app-button>
+
+      <a class="link-danger " routerLink="/forgotPassword">Forgot password?</a>
+    </div>
 
 
 
